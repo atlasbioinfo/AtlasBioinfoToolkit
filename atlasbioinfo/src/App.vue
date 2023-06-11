@@ -1,7 +1,3 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router'
-</script>
-
 <template>
   <q-layout view="lHh Lpr fff" class="bg-grey-1">
     <q-header elevated class="bg-white text-grey-8" height-hint="64">
@@ -17,8 +13,7 @@ import { RouterLink, RouterView } from 'vue-router'
         />
 
         <q-toolbar-title v-if="$q.screen.gt.sm" shrink class="row items-center no-wrap">
-          <img src="https://cdn.quasar.dev/img/layout-gallery/logo-google.svg">
-          <span class="q-ml-sm">Photos</span>
+          <span class="q-ml-sm">Atlas Bioinformatics</span>
         </q-toolbar-title>
 
         <q-space />
@@ -30,35 +25,12 @@ import { RouterLink, RouterView } from 'vue-router'
           </template>
         </q-input>
 
-        <q-btn v-if="$q.screen.gt.xs" flat dense no-wrap color="primary" icon="add" no-caps label="Create" class="q-ml-sm q-px-md">
-          <q-menu anchor="top end" self="top end">
-            <q-list class="text-grey-8" style="min-width: 100px">
-              <q-item aria-hidden="true">
-                <q-item-section class="text-uppercase text-grey-7" style="font-size: 0.7rem">Create New</q-item-section>
-              </q-item>
-              <q-item v-for="menu in createMenu" :key="menu.text" clickable v-close-popup aria-hidden="true">
-                <q-item-section avatar>
-                  <q-icon :name="menu.icon" />
-                </q-item-section>
-                <q-item-section>{{ menu.text }}</q-item-section>
-              </q-item>
-            </q-list>
-          </q-menu>
-        </q-btn>
-
-        <q-btn v-if="$q.screen.gt.xs" flat dense no-wrap color="primary" icon="cloud_upload" no-caps label="Upload" class="q-ml-sm q-px-md" />
 
         <q-space />
 
         <div class="q-gutter-sm row items-center no-wrap">
           <q-btn round dense flat color="text-grey-7" icon="apps">
-            <q-tooltip>Google Apps</q-tooltip>
-          </q-btn>
-          <q-btn round dense flat color="grey-8" icon="notifications">
-            <q-badge color="red" text-color="white" floating>
-              2
-            </q-badge>
-            <q-tooltip>Notifications</q-tooltip>
+            <q-tooltip>Tools</q-tooltip>
           </q-btn>
           <q-btn round flat>
             <q-avatar size="26px">
@@ -79,8 +51,7 @@ import { RouterLink, RouterView } from 'vue-router'
       <q-scroll-area class="fit">
         <q-toolbar class="GPL__toolbar">
           <q-toolbar-title class="row items-center text-grey-8">
-            <img class="q-pl-md" src="https://www.gstatic.com/images/branding/googlelogo/svg/googlelogo_clr_74x24px.svg">
-            <span class="q-ml-sm">Photos</span>
+            <span class="q-ml-sm">Bioinformatics Toolkit</span>
           </q-toolbar-title>
         </q-toolbar>
 
@@ -93,79 +64,12 @@ import { RouterLink, RouterView } from 'vue-router'
               <q-item-label>{{ link.text }}</q-item-label>
             </q-item-section>
           </q-item>
-
-          <q-separator class="q-my-md" />
-
-          <q-item v-for="link in links2" :key="link.text" clickable class="GPL__drawer-item">
-            <q-item-section avatar>
-              <q-icon :name="link.icon" />
-            </q-item-section>
-            <q-item-section>
-              <q-item-label>{{ link.text }}</q-item-label>
-            </q-item-section>
-          </q-item>
-
-          <q-separator class="q-my-md" />
-
-          <q-item v-for="link in links3" :key="link.text" clickable class="GPL__drawer-item">
-            <q-item-section avatar>
-              <q-icon :name="link.icon" />
-            </q-item-section>
-            <q-item-section>
-              <q-item-label>{{ link.text }}</q-item-label>
-            </q-item-section>
-          </q-item>
-
-          <q-separator class="q-my-md" />
-
-          <q-item clickable class="GPL__drawer-item GPL__drawer-item--storage">
-            <q-item-section avatar>
-              <q-icon name="cloud" />
-            </q-item-section>
-            <q-item-section top>
-              <q-item-label>Storage</q-item-label>
-              <q-linear-progress :value="storage" class="q-my-sm" />
-              <q-item-label caption>2.6 GB of 15 GB</q-item-label>
-            </q-item-section>
-          </q-item>
         </q-list>
       </q-scroll-area>
     </q-drawer>
 
     <q-page-container class="GPL__page-container">
-      <RouterView />
-
-      <q-page-sticky v-if="$q.screen.gt.sm" expand position="left">
-        <div class="fit q-pt-xl q-px-sm column">
-          <q-btn round flat color="grey-8" stack no-caps size="26px" class="GPL__side-btn">
-            <q-icon size="22px" name="photo" />
-            <div class="GPL__side-btn__label">Photos</div>
-          </q-btn>
-
-          <q-btn round flat color="grey-8" stack no-caps size="26px" class="GPL__side-btn">
-            <q-icon size="22px" name="collections_bookmark" />
-            <div class="GPL__side-btn__label">Albums</div>
-          </q-btn>
-
-          <q-btn round flat color="grey-8" stack no-caps size="26px" class="GPL__side-btn">
-            <q-icon size="22px" name="assistant" />
-            <div class="GPL__side-btn__label">Assistant</div>
-            <q-badge floating color="red" text-color="white" style="top: 8px; right: 16px">
-              1
-            </q-badge>
-          </q-btn>
-
-          <q-btn round flat color="grey-8" stack no-caps size="26px" class="GPL__side-btn">
-            <q-icon size="22px" name="group" />
-            <div class="GPL__side-btn__label">Sharing</div>
-          </q-btn>
-
-          <q-btn round flat color="grey-8" stack no-caps size="26px" class="GPL__side-btn">
-            <q-icon size="22px" name="import_contacts" />
-            <div class="GPL__side-btn__label">Photo books</div>
-          </q-btn>
-        </div>
-      </q-page-sticky>
+      <router-view />
     </q-page-container>
   </q-layout>
 </template>
@@ -179,7 +83,6 @@ export default {
   setup () {
     const leftDrawerOpen = ref(false)
     const search = ref('')
-    const storage = ref(0.26)
 
     function toggleLeftDrawer () {
       leftDrawerOpen.value = !leftDrawerOpen.value
@@ -188,14 +91,14 @@ export default {
     return {
       leftDrawerOpen,
       search,
-      storage,
 
       links1: [
-        { icon: 'photo', text: 'Photos' },
-        { icon: 'photo_album', text: 'Albums' },
-        { icon: 'assistant', text: 'Assistant' },
-        { icon: 'people', text: 'Sharing' },
-        { icon: 'book', text: 'Photo books' }
+        { icon: 'edit', text: 'Edit' },  
+        { icon: 'share', text: 'Share' },
+        { icon: 'delete', text: 'Delete' },
+        { icon: 'favorite', text: 'Favorite' },
+        { icon: 'open_in_new', text: 'Update' },
+        { icon: 'open_in_new', text: 'Find out more' },
       ],
       links2: [
         { icon: 'archive', text: 'Archive' },
@@ -264,7 +167,3 @@ export default {
     &__page-container
       padding-left: 94px
 </style>
-
-
-
-

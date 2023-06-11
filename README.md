@@ -1,4 +1,4 @@
-# Bioinformatics Toolbox
+# Bioinformatics Toolbox (preview)
 
 This project is a web application that provides a collection of commonly used bioinformatics tools. The goal is to create a user-friendly interface and enable users to perform various bioinformatics analyses directly in the browser.
 
